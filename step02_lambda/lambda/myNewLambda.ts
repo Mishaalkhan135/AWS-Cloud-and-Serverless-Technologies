@@ -4,6 +4,7 @@ import {
     Context,
   } from "aws-lambda";
   
+ //The function of lambda with a name (handler) 
 export async function handler(event: APIGatewayProxyEvent,context: Context): Promise<APIGatewayProxyResult> {
   console.log("request:", event);
   return {

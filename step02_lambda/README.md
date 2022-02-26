@@ -17,6 +17,7 @@ The `cdk.json` file tells the CDK Toolkit how to execute your app.
 
 ### Librariers to install
 
-- yarn add @types/aws-lambda
-  -npm run build
-  -cdk deploy
+-npm install @types/aws-lambda
+-npm run build
+-cdk deploy
+-npm i api gateway
