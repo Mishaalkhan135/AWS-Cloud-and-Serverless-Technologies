@@ -1,0 +1,172 @@
+{
+  "version": "16.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "Step02LambdaStack.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "Step02LambdaStack.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "Step02LambdaStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "Step02LambdaStack.template.json",
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/9f79071b3a2a5ed066e4c04fc2e4ebd3e2f4520cda9f5aab050d93fef7376991.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "Step02LambdaStack.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "Step02LambdaStack.assets"
+      ],
+      "metadata": {
+        "/Step02LambdaStack/hello-mishaal-handler/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "hellomishaalhandlerServiceRole57E69620"
+          }
+        ],
+        "/Step02LambdaStack/hello-mishaal-handler/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "hellomishaalhandler1CD146DB"
+          }
+        ],
+        "/Step02LambdaStack/my-api-1/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "myapi15936E87B"
+          }
+        ],
+        "/Step02LambdaStack/my-api-1/CloudWatchRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "myapi1CloudWatchRole0CFE1EC6"
+          }
+        ],
+        "/Step02LambdaStack/my-api-1/Account": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "myapi1AccountEC725042"
+          }
+        ],
+        "/Step02LambdaStack/my-api-1/Deployment/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "myapi1Deployment40493488bd1d1cd292331056240363ea360450bb"
+          }
+        ],
+        "/Step02LambdaStack/my-api-1/DeploymentStage.prod/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "myapi1DeploymentStageprod3E55E144"
+          }
+        ],
+        "/Step02LambdaStack/my-api-1/Endpoint": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "myapi1Endpoint31CB8CD7"
+          }
+        ],
+        "/Step02LambdaStack/my-api-1/Default/cars/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "myapi1carsDE00CD89"
+          }
+        ],
+        "/Step02LambdaStack/my-api-1/Default/cars/GET/ApiPermission.Step02LambdaStackmyapi14B8F6407.GET..cars": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "myapi1carsGETApiPermissionStep02LambdaStackmyapi14B8F6407GETcars31DB707A"
+          }
+        ],
+        "/Step02LambdaStack/my-api-1/Default/cars/GET/ApiPermission.Test.Step02LambdaStackmyapi14B8F6407.GET..cars": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "myapi1carsGETApiPermissionTestStep02LambdaStackmyapi14B8F6407GETcars02DFEE51"
+          }
+        ],
+        "/Step02LambdaStack/my-api-1/Default/cars/GET/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "myapi1carsGET8648C675"
+          }
+        ],
+        "/Step02LambdaStack/my-api-1/Default/bikes/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "myapi1bikes51DA97EC"
+          }
+        ],
+        "/Step02LambdaStack/my-api-1/Default/bikes/GET/ApiPermission.Step02LambdaStackmyapi14B8F6407.GET..bikes": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "myapi1bikesGETApiPermissionStep02LambdaStackmyapi14B8F6407GETbikesD02A9C7D"
+          }
+        ],
+        "/Step02LambdaStack/my-api-1/Default/bikes/GET/ApiPermission.Test.Step02LambdaStackmyapi14B8F6407.GET..bikes": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "myapi1bikesGETApiPermissionTestStep02LambdaStackmyapi14B8F6407GETbikes833242F3"
+          }
+        ],
+        "/Step02LambdaStack/my-api-1/Default/bikes/GET/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "myapi1bikesGET0F9EEF7A"
+          }
+        ],
+        "/Step02LambdaStack/api-url-output": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "apiurloutput"
+          }
+        ],
+        "/Step02LambdaStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/Step02LambdaStack/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/Step02LambdaStack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/Step02LambdaStack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "Step02LambdaStack"
+    }
+  }
+}
