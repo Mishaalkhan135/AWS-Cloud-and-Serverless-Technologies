@@ -1,28 +1,28 @@
 {
   "version": "16.0.0",
   "files": {
-    "2215138fbddf619ff6388cf5632c8fec1c2c5a82da1b54027ec47aeaa9920983": {
+    "7367ab5ed2e531cdab29c5b9684335889b17c169d804e4f8e3e5c6a3f6dde225": {
       "source": {
-        "path": "asset.2215138fbddf619ff6388cf5632c8fec1c2c5a82da1b54027ec47aeaa9920983",
+        "path": "asset.7367ab5ed2e531cdab29c5b9684335889b17c169d804e4f8e3e5c6a3f6dde225",
         "packaging": "zip"
       },
       "destinations": {
         "current_account-current_region": {
           "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
-          "objectKey": "2215138fbddf619ff6388cf5632c8fec1c2c5a82da1b54027ec47aeaa9920983.zip",
+          "objectKey": "7367ab5ed2e531cdab29c5b9684335889b17c169d804e4f8e3e5c6a3f6dde225.zip",
           "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
         }
       }
     },
-    "243f752d3cbeb98046e71ce46200db7e5fa8893cb541bcaaaf72c9ebbf390a78": {
+    "2154818c2bfe20bd68612539c51699a37cedeca1e8cfa5c55c4e4f95ad767290": {
       "source": {
-        "path": "Step02LambdaStack.template.json",
+        "path": "Step04AppsyncLambdaAsDatasourceStack.template.json",
         "packaging": "file"
       },
       "destinations": {
         "current_account-current_region": {
           "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
-          "objectKey": "243f752d3cbeb98046e71ce46200db7e5fa8893cb541bcaaaf72c9ebbf390a78.json",
+          "objectKey": "2154818c2bfe20bd68612539c51699a37cedeca1e8cfa5c55c4e4f95ad767290.json",
           "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
         }
       }
