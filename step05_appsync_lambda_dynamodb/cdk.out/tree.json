@@ -1,0 +1,560 @@
+{
+  "version": "tree-0.1",
+  "tree": {
+    "id": "App",
+    "path": "",
+    "children": {
+      "Tree": {
+        "id": "Tree",
+        "path": "Tree",
+        "constructInfo": {
+          "fqn": "constructs.Construct",
+          "version": "10.0.74"
+        }
+      },
+      "Step05AppsyncLambdaDynamodbStack": {
+        "id": "Step05AppsyncLambdaDynamodbStack",
+        "path": "Step05AppsyncLambdaDynamodbStack",
+        "children": {
+          "DynamoDBLambda": {
+            "id": "DynamoDBLambda",
+            "path": "Step05AppsyncLambdaDynamodbStack/DynamoDBLambda",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "Step05AppsyncLambdaDynamodbStack/DynamoDBLambda/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::AppSync::GraphQLApi",
+                  "aws:cdk:cloudformation:props": {
+                    "authenticationType": "API_KEY",
+                    "name": "cdk-appsync-dyanamodb-api"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_appsync.CfnGraphQLApi",
+                  "version": "2.14.0"
+                }
+              },
+              "Schema": {
+                "id": "Schema",
+                "path": "Step05AppsyncLambdaDynamodbStack/DynamoDBLambda/Schema",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::AppSync::GraphQLSchema",
+                  "aws:cdk:cloudformation:props": {
+                    "apiId": {
+                      "Fn::GetAtt": [
+                        "DynamoDBLambda863ACDF8",
+                        "ApiId"
+                      ]
+                    },
+                    "definition": "type Query {\r\n  welcome: String\r\n}\r\n\r\ninput ProductInput {\r\n  name: String\r\n  price: Int\r\n}\r\n\r\ntype Product {\r\n  id: String\r\n  name: String\r\n  price: Int\r\n}\r\n\r\ntype Mutation {\r\n  addProduct(product: ProductInput): Product\r\n  deleteProduct(productId: String): String\r\n}\r\n"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_appsync.CfnGraphQLSchema",
+                  "version": "2.14.0"
+                }
+              },
+              "DefaultApiKey": {
+                "id": "DefaultApiKey",
+                "path": "Step05AppsyncLambdaDynamodbStack/DynamoDBLambda/DefaultApiKey",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::AppSync::ApiKey",
+                  "aws:cdk:cloudformation:props": {
+                    "apiId": {
+                      "Fn::GetAtt": [
+                        "DynamoDBLambda863ACDF8",
+                        "ApiId"
+                      ]
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_appsync.CfnApiKey",
+                  "version": "2.14.0"
+                }
+              },
+              "LambdaDataSource": {
+                "id": "LambdaDataSource",
+                "path": "Step05AppsyncLambdaDynamodbStack/DynamoDBLambda/LambdaDataSource",
+                "children": {
+                  "ServiceRole": {
+                    "id": "ServiceRole",
+                    "path": "Step05AppsyncLambdaDynamodbStack/DynamoDBLambda/LambdaDataSource/ServiceRole",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "Step05AppsyncLambdaDynamodbStack/DynamoDBLambda/LambdaDataSource/ServiceRole/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                          "aws:cdk:cloudformation:props": {
+                            "assumeRolePolicyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": "sts:AssumeRole",
+                                  "Effect": "Allow",
+                                  "Principal": {
+                                    "Service": "appsync.amazonaws.com"
+                                  }
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                          "version": "2.14.0"
+                        }
+                      },
+                      "DefaultPolicy": {
+                        "id": "DefaultPolicy",
+                        "path": "Step05AppsyncLambdaDynamodbStack/DynamoDBLambda/LambdaDataSource/ServiceRole/DefaultPolicy",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "Step05AppsyncLambdaDynamodbStack/DynamoDBLambda/LambdaDataSource/ServiceRole/DefaultPolicy/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                              "aws:cdk:cloudformation:props": {
+                                "policyDocument": {
+                                  "Statement": [
+                                    {
+                                      "Action": "lambda:InvokeFunction",
+                                      "Effect": "Allow",
+                                      "Resource": {
+                                        "Fn::GetAtt": [
+                                          "LambdaFunction7C6D58FC",
+                                          "Arn"
+                                        ]
+                                      }
+                                    }
+                                  ],
+                                  "Version": "2012-10-17"
+                                },
+                                "policyName": "DynamoDBLambdaLambdaDataSourceServiceRoleDefaultPolicy2DD0262D",
+                                "roles": [
+                                  {
+                                    "Ref": "DynamoDBLambdaLambdaDataSourceServiceRole99A9CABC"
+                                  }
+                                ]
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                              "version": "2.14.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.Policy",
+                          "version": "2.14.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Role",
+                      "version": "2.14.0"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "Step05AppsyncLambdaDynamodbStack/DynamoDBLambda/LambdaDataSource/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::AppSync::DataSource",
+                      "aws:cdk:cloudformation:props": {
+                        "apiId": {
+                          "Fn::GetAtt": [
+                            "DynamoDBLambda863ACDF8",
+                            "ApiId"
+                          ]
+                        },
+                        "name": "LambdaDataSource",
+                        "type": "AWS_LAMBDA",
+                        "lambdaConfig": {
+                          "lambdaFunctionArn": {
+                            "Fn::GetAtt": [
+                              "LambdaFunction7C6D58FC",
+                              "Arn"
+                            ]
+                          }
+                        },
+                        "serviceRoleArn": {
+                          "Fn::GetAtt": [
+                            "DynamoDBLambdaLambdaDataSourceServiceRole99A9CABC",
+                            "Arn"
+                          ]
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_appsync.CfnDataSource",
+                      "version": "2.14.0"
+                    }
+                  },
+                  "QuerywelcomeResolver": {
+                    "id": "QuerywelcomeResolver",
+                    "path": "Step05AppsyncLambdaDynamodbStack/DynamoDBLambda/LambdaDataSource/QuerywelcomeResolver",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "Step05AppsyncLambdaDynamodbStack/DynamoDBLambda/LambdaDataSource/QuerywelcomeResolver/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::AppSync::Resolver",
+                          "aws:cdk:cloudformation:props": {
+                            "apiId": {
+                              "Fn::GetAtt": [
+                                "DynamoDBLambda863ACDF8",
+                                "ApiId"
+                              ]
+                            },
+                            "fieldName": "welcome",
+                            "typeName": "Query",
+                            "dataSourceName": "LambdaDataSource",
+                            "kind": "UNIT"
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_appsync.CfnResolver",
+                          "version": "2.14.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-appsync-alpha.Resolver",
+                      "version": "2.14.0-alpha.0"
+                    }
+                  },
+                  "MutationaddProductResolver": {
+                    "id": "MutationaddProductResolver",
+                    "path": "Step05AppsyncLambdaDynamodbStack/DynamoDBLambda/LambdaDataSource/MutationaddProductResolver",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "Step05AppsyncLambdaDynamodbStack/DynamoDBLambda/LambdaDataSource/MutationaddProductResolver/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::AppSync::Resolver",
+                          "aws:cdk:cloudformation:props": {
+                            "apiId": {
+                              "Fn::GetAtt": [
+                                "DynamoDBLambda863ACDF8",
+                                "ApiId"
+                              ]
+                            },
+                            "fieldName": "addProduct",
+                            "typeName": "Mutation",
+                            "dataSourceName": "LambdaDataSource",
+                            "kind": "UNIT"
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_appsync.CfnResolver",
+                          "version": "2.14.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-appsync-alpha.Resolver",
+                      "version": "2.14.0-alpha.0"
+                    }
+                  },
+                  "MutationdeleteProductResolver": {
+                    "id": "MutationdeleteProductResolver",
+                    "path": "Step05AppsyncLambdaDynamodbStack/DynamoDBLambda/LambdaDataSource/MutationdeleteProductResolver",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "Step05AppsyncLambdaDynamodbStack/DynamoDBLambda/LambdaDataSource/MutationdeleteProductResolver/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::AppSync::Resolver",
+                          "aws:cdk:cloudformation:props": {
+                            "apiId": {
+                              "Fn::GetAtt": [
+                                "DynamoDBLambda863ACDF8",
+                                "ApiId"
+                              ]
+                            },
+                            "fieldName": "deleteProduct",
+                            "typeName": "Mutation",
+                            "dataSourceName": "LambdaDataSource",
+                            "kind": "UNIT"
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_appsync.CfnResolver",
+                          "version": "2.14.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-appsync-alpha.Resolver",
+                      "version": "2.14.0-alpha.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-appsync-alpha.LambdaDataSource",
+                  "version": "2.14.0-alpha.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/aws-appsync-alpha.GraphqlApi",
+              "version": "2.14.0-alpha.0"
+            }
+          },
+          "Lambda_Function": {
+            "id": "Lambda_Function",
+            "path": "Step05AppsyncLambdaDynamodbStack/Lambda_Function",
+            "children": {
+              "ServiceRole": {
+                "id": "ServiceRole",
+                "path": "Step05AppsyncLambdaDynamodbStack/Lambda_Function/ServiceRole",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "Step05AppsyncLambdaDynamodbStack/Lambda_Function/ServiceRole/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                      "aws:cdk:cloudformation:props": {
+                        "assumeRolePolicyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "sts:AssumeRole",
+                              "Effect": "Allow",
+                              "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "managedPolicyArns": [
+                          {
+                            "Fn::Join": [
+                              "",
+                              [
+                                "arn:",
+                                {
+                                  "Ref": "AWS::Partition"
+                                },
+                                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                              ]
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                      "version": "2.14.0"
+                    }
+                  },
+                  "DefaultPolicy": {
+                    "id": "DefaultPolicy",
+                    "path": "Step05AppsyncLambdaDynamodbStack/Lambda_Function/ServiceRole/DefaultPolicy",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "Step05AppsyncLambdaDynamodbStack/Lambda_Function/ServiceRole/DefaultPolicy/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                          "aws:cdk:cloudformation:props": {
+                            "policyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": "dynamodb:*",
+                                  "Effect": "Allow",
+                                  "Resource": [
+                                    {
+                                      "Fn::GetAtt": [
+                                        "ProductTableB8D4E9ED",
+                                        "Arn"
+                                      ]
+                                    },
+                                    {
+                                      "Ref": "AWS::NoValue"
+                                    }
+                                  ]
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "policyName": "LambdaFunctionServiceRoleDefaultPolicy6843BEBC",
+                            "roles": [
+                              {
+                                "Ref": "LambdaFunctionServiceRole1A01527A"
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                          "version": "2.14.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Policy",
+                      "version": "2.14.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Role",
+                  "version": "2.14.0"
+                }
+              },
+              "Code": {
+                "id": "Code",
+                "path": "Step05AppsyncLambdaDynamodbStack/Lambda_Function/Code",
+                "children": {
+                  "Stage": {
+                    "id": "Stage",
+                    "path": "Step05AppsyncLambdaDynamodbStack/Lambda_Function/Code/Stage",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.AssetStaging",
+                      "version": "2.14.0"
+                    }
+                  },
+                  "AssetBucket": {
+                    "id": "AssetBucket",
+                    "path": "Step05AppsyncLambdaDynamodbStack/Lambda_Function/Code/AssetBucket",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                      "version": "2.14.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                  "version": "2.14.0"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "Step05AppsyncLambdaDynamodbStack/Lambda_Function/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                  "aws:cdk:cloudformation:props": {
+                    "code": {
+                      "s3Bucket": {
+                        "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
+                      },
+                      "s3Key": "3248b9adffa7d5f3dc32ea376af40c76c9aa5c7875354b7f95226706da619cde.zip"
+                    },
+                    "role": {
+                      "Fn::GetAtt": [
+                        "LambdaFunctionServiceRole1A01527A",
+                        "Arn"
+                      ]
+                    },
+                    "environment": {
+                      "variables": {
+                        "TABLE_NAME": {
+                          "Ref": "ProductTableB8D4E9ED"
+                        }
+                      }
+                    },
+                    "handler": "index.handler",
+                    "runtime": "nodejs12.x"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
+                  "version": "2.14.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_lambda.Function",
+              "version": "2.14.0"
+            }
+          },
+          "ProductTable": {
+            "id": "ProductTable",
+            "path": "Step05AppsyncLambdaDynamodbStack/ProductTable",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "Step05AppsyncLambdaDynamodbStack/ProductTable/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::DynamoDB::Table",
+                  "aws:cdk:cloudformation:props": {
+                    "keySchema": [
+                      {
+                        "attributeName": "id",
+                        "keyType": "HASH"
+                      }
+                    ],
+                    "attributeDefinitions": [
+                      {
+                        "attributeName": "id",
+                        "attributeType": "S"
+                      }
+                    ],
+                    "provisionedThroughput": {
+                      "readCapacityUnits": 5,
+                      "writeCapacityUnits": 5
+                    },
+                    "tableName": "mishaalkhan"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_dynamodb.CfnTable",
+                  "version": "2.14.0"
+                }
+              },
+              "ScalingRole": {
+                "id": "ScalingRole",
+                "path": "Step05AppsyncLambdaDynamodbStack/ProductTable/ScalingRole",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.Resource",
+                  "version": "2.14.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_dynamodb.Table",
+              "version": "2.14.0"
+            }
+          },
+          "CDKMetadata": {
+            "id": "CDKMetadata",
+            "path": "Step05AppsyncLambdaDynamodbStack/CDKMetadata",
+            "children": {
+              "Default": {
+                "id": "Default",
+                "path": "Step05AppsyncLambdaDynamodbStack/CDKMetadata/Default",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnResource",
+                  "version": "2.14.0"
+                }
+              },
+              "Condition": {
+                "id": "Condition",
+                "path": "Step05AppsyncLambdaDynamodbStack/CDKMetadata/Condition",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnCondition",
+                  "version": "2.14.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.0.74"
+            }
+          }
+        },
+        "constructInfo": {
+          "fqn": "aws-cdk-lib.Stack",
+          "version": "2.14.0"
+        }
+      }
+    },
+    "constructInfo": {
+      "fqn": "aws-cdk-lib.App",
+      "version": "2.14.0"
+    }
+  }
+}

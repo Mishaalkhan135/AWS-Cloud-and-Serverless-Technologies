@@ -1,0 +1,156 @@
+{
+  "version": "16.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "Step05AppsyncLambdaDynamodbStack.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "Step05AppsyncLambdaDynamodbStack.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "Step05AppsyncLambdaDynamodbStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "Step05AppsyncLambdaDynamodbStack.template.json",
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/4b097e2cb00303a1baef9aac2c3afd44d504951e489533e2f233b1de696cd982.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "Step05AppsyncLambdaDynamodbStack.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "Step05AppsyncLambdaDynamodbStack.assets"
+      ],
+      "metadata": {
+        "/Step05AppsyncLambdaDynamodbStack/DynamoDBLambda/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DynamoDBLambda863ACDF8"
+          }
+        ],
+        "/Step05AppsyncLambdaDynamodbStack/DynamoDBLambda/Schema": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DynamoDBLambdaSchema871BBCB5"
+          }
+        ],
+        "/Step05AppsyncLambdaDynamodbStack/DynamoDBLambda/DefaultApiKey": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DynamoDBLambdaDefaultApiKey80998192"
+          }
+        ],
+        "/Step05AppsyncLambdaDynamodbStack/DynamoDBLambda/LambdaDataSource/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DynamoDBLambdaLambdaDataSourceServiceRole99A9CABC"
+          }
+        ],
+        "/Step05AppsyncLambdaDynamodbStack/DynamoDBLambda/LambdaDataSource/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DynamoDBLambdaLambdaDataSourceServiceRoleDefaultPolicy2DD0262D"
+          }
+        ],
+        "/Step05AppsyncLambdaDynamodbStack/DynamoDBLambda/LambdaDataSource/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DynamoDBLambdaLambdaDataSource169302BB"
+          }
+        ],
+        "/Step05AppsyncLambdaDynamodbStack/DynamoDBLambda/LambdaDataSource/QuerywelcomeResolver/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DynamoDBLambdaLambdaDataSourceQuerywelcomeResolver87DF5DF9"
+          }
+        ],
+        "/Step05AppsyncLambdaDynamodbStack/DynamoDBLambda/LambdaDataSource/MutationaddProductResolver/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DynamoDBLambdaLambdaDataSourceMutationaddProductResolver028B9637"
+          }
+        ],
+        "/Step05AppsyncLambdaDynamodbStack/DynamoDBLambda/LambdaDataSource/MutationdeleteProductResolver/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DynamoDBLambdaLambdaDataSourceMutationdeleteProductResolver62DCB99B"
+          }
+        ],
+        "/Step05AppsyncLambdaDynamodbStack/Lambda_Function/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LambdaFunctionServiceRole1A01527A"
+          }
+        ],
+        "/Step05AppsyncLambdaDynamodbStack/Lambda_Function/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LambdaFunctionServiceRoleDefaultPolicy6843BEBC"
+          }
+        ],
+        "/Step05AppsyncLambdaDynamodbStack/Lambda_Function/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LambdaFunction7C6D58FC"
+          }
+        ],
+        "/Step05AppsyncLambdaDynamodbStack/ProductTable": [
+          {
+            "type": "aws:cdk:hasPhysicalName",
+            "data": {
+              "Ref": "ProductTableB8D4E9ED"
+            }
+          }
+        ],
+        "/Step05AppsyncLambdaDynamodbStack/ProductTable/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ProductTableB8D4E9ED"
+          }
+        ],
+        "/Step05AppsyncLambdaDynamodbStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/Step05AppsyncLambdaDynamodbStack/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/Step05AppsyncLambdaDynamodbStack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/Step05AppsyncLambdaDynamodbStack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "Step05AppsyncLambdaDynamodbStack"
+    }
+  }
+}
