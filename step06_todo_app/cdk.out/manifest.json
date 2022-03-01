@@ -1,0 +1,174 @@
+{
+  "version": "16.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "Step06TodoAppStack.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "Step06TodoAppStack.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "Step06TodoAppStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "Step06TodoAppStack.template.json",
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/9a25cacf7b3a62660519dc086ae415ced851716d0a18dccc72a698728d1d6cff.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "Step06TodoAppStack.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "Step06TodoAppStack.assets"
+      ],
+      "metadata": {
+        "/Step06TodoAppStack/TodoLmabda/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TodoLmabda8023F9A5"
+          }
+        ],
+        "/Step06TodoAppStack/TodoLmabda/Schema": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TodoLmabdaSchemaBABD50BD"
+          }
+        ],
+        "/Step06TodoAppStack/TodoLmabda/DefaultApiKey": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TodoLmabdaDefaultApiKey80C87B1F"
+          }
+        ],
+        "/Step06TodoAppStack/TodoLmabda/LambdaDataSource/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TodoLmabdaLambdaDataSourceServiceRole0F6A07CF"
+          }
+        ],
+        "/Step06TodoAppStack/TodoLmabda/LambdaDataSource/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TodoLmabdaLambdaDataSourceServiceRoleDefaultPolicy6DC4F735"
+          }
+        ],
+        "/Step06TodoAppStack/TodoLmabda/LambdaDataSource/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TodoLmabdaLambdaDataSource84C46D77"
+          }
+        ],
+        "/Step06TodoAppStack/TodoLmabda/LambdaDataSource/QuerygetTodosResolver/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TodoLmabdaLambdaDataSourceQuerygetTodosResolver6DC58D26"
+          }
+        ],
+        "/Step06TodoAppStack/TodoLmabda/LambdaDataSource/MutationaddTodoResolver/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TodoLmabdaLambdaDataSourceMutationaddTodoResolver15B75334"
+          }
+        ],
+        "/Step06TodoAppStack/TodoLmabda/LambdaDataSource/MutationdeleteTodoResolver/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TodoLmabdaLambdaDataSourceMutationdeleteTodoResolver21F292D7"
+          }
+        ],
+        "/Step06TodoAppStack/TodoLmabda/LambdaDataSource/MutationupdateTodoResolver/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TodoLmabdaLambdaDataSourceMutationupdateTodoResolverF1E77807"
+          }
+        ],
+        "/Step06TodoAppStack/CDkTodoesTable": [
+          {
+            "type": "aws:cdk:hasPhysicalName",
+            "data": {
+              "Ref": "CDkTodoesTable42809F61"
+            }
+          }
+        ],
+        "/Step06TodoAppStack/CDkTodoesTable/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDkTodoesTable42809F61"
+          }
+        ],
+        "/Step06TodoAppStack/Lambda_Function_Todo/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LambdaFunctionTodoServiceRoleF52CB32E"
+          }
+        ],
+        "/Step06TodoAppStack/Lambda_Function_Todo/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LambdaFunctionTodoServiceRoleDefaultPolicy368449F8"
+          }
+        ],
+        "/Step06TodoAppStack/Lambda_Function_Todo/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LambdaFunctionTodoA589C379"
+          }
+        ],
+        "/Step06TodoAppStack/GraphQlUrl": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GraphQlUrl"
+          }
+        ],
+        "/Step06TodoAppStack/GraphQlUrl_Key": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "GraphQlUrlKey"
+          }
+        ],
+        "/Step06TodoAppStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/Step06TodoAppStack/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/Step06TodoAppStack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/Step06TodoAppStack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "Step06TodoAppStack"
+    }
+  }
+}
