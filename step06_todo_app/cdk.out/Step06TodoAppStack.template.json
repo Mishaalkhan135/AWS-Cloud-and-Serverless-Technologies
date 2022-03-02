@@ -311,7 +311,7 @@
           "S3Bucket": {
             "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
           },
-          "S3Key": "e10c7c039fee92ddcc4f2ad607008ac90cb0305ba01346b8de4609154b8285c4.zip"
+          "S3Key": "252879884e68beb0ad5b0b96f67cf51d983665bdca75ec27c658f290bfb76bc9.zip"
         },
         "Role": {
           "Fn::GetAtt": [
@@ -335,7 +335,7 @@
       ],
       "Metadata": {
         "aws:cdk:path": "Step06TodoAppStack/Lambda_Function_Todo/Resource",
-        "aws:asset:path": "asset.e10c7c039fee92ddcc4f2ad607008ac90cb0305ba01346b8de4609154b8285c4",
+        "aws:asset:path": "asset.252879884e68beb0ad5b0b96f67cf51d983665bdca75ec27c658f290bfb76bc9",
         "aws:asset:is-bundled": false,
         "aws:asset:property": "Code"
       }

@@ -2,7 +2,7 @@ import { CfnOutput, Stack, StackProps } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import *as appsync from "@aws-cdk/aws-appsync-alpha"
 import * as lambda from "aws-cdk-lib/aws-lambda"
-import { apexDomain } from 'aws-cdk-lib/aws-certificatemanager';
+
 // import * as sqs from 'aws-cdk-lib/aws-sqs';
 
 export class Step04AppsyncLambdaAsDatasourceStack extends Stack {
