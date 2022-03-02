@@ -60,6 +60,9 @@ dynamo_dataSource.createResolver({
             }
   `),
   responseMappingTemplate:appsync.MappingTemplate.fromString(`
+          #foreach ($item in $context.result.items)
+                $util.qr($item .put("name","$item.name - $item.price"))
+         #end
         $util.toJson($context.result.items) 
   `)
 })
