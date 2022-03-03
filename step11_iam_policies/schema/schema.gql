@@ -1,0 +1,10 @@
+type Query {
+  welcome: String
+}
+type data {
+    id: String
+    title: String
+}
+Mutation{
+    createData(id:String,title:String):Data
+}

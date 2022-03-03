@@ -58,7 +58,7 @@ export class Step10CognitoCdkStack extends Stack {
   });
   const domain = userPool.addDomain("domain", {
     cognitoDomain: {
-      domainPrefix: "eru-test-pool", // SET YOUR OWN Domain PREFIX HERE
+      domainPrefix: "my-app-", // SET YOUR OWN Domain PREFIX HERE
     },
   });
   new cdk.CfnOutput(this, "aws_user_pools_web_client_id", {
