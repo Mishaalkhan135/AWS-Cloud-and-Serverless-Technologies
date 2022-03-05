@@ -1,0 +1,26 @@
+1)create a new project
+cdk init app --language typescript
+2)for cdk inializing 
+const aws_cdk_lib_1 = require("aws-cdk-lib");
+3)for lambda inializing 
+const lambda = require(" @aws-cdk/aws-lambda");
+4)for appsync alpha inializing 
+const appsync = require("@aws-cdk/aws-appsync-alpha");
+5)for dynamoDb inializing 
+const ddb = require("aws-cdk-lib/aws-dynamodb");
+6)for iam policies
+const iam = require("npm i @aws-cdk/aws-iam");
+7)secret key manager
+@aws-cdk/aws-secretsmanager
+const AWS = require('aws-sdk');
+8)RDN for sample database in secret manager keys
+9)s3 bucket 
+const aws_s3_1 = require("aws-cdk-lib/aws-s3")
+10)give lambda function access example dynamoBd	
+productTable.grantFullAccess(lambda_function);
+11)Giving lambda function access to secret keys from iam roll policies 
+ lambdaFn.grantInvoke(new iam.ServicePrincipal('secretsmanager.amazonaws.com'));
+    lambdaFn.addToRolePolicy(new iam.PolicyStatement({
+      resources: [secret3.secretArn],
+      actions: ['secretsmanager:GetSecretValue']
+    }));
