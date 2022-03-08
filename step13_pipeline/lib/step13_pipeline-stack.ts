@@ -1,7 +1,7 @@
 import { aws_codebuild, aws_codepipeline_actions, SecretValue, Stack, StackProps } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import * as CodePipeline from 'aws-cdk-lib/aws-codepipeline'
-import * as CodePipelineAction from aws-cdk-lib/aws-codepipeline-actions'
+import * as CodePipelineAction from '@aws-cdk/aws-codepipeline-actions'
 // import * as sqs from 'aws-cdk-lib/aws-sqs';
 
 export class Step13PipelineStack extends Stack {
@@ -63,9 +63,9 @@ export class Step13PipelineStack extends Stack {
     new aws_codepipeline_actions.GitHubSourceAction({
      actionName: 'Github_Source',
      output: sourceOutput,
-     owner: 'mishaalkhan',
+     owner: 'Mishaalkhan135',
      repo: 'pipeLineExample',
-     oauthToken: SecretValue.plainText("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"),
+     oauthToken: SecretValue.plainText("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"),
      branch:'main'
     })
   ],
