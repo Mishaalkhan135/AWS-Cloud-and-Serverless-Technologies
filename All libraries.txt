@@ -7,7 +7,7 @@ const lambda = require(" @aws-cdk/aws-lambda");
 4)for appsync alpha inializing 
 const appsync = require("@aws-cdk/aws-appsync-alpha");
 5)for dynamoDb inializing 
-const ddb = require("aws-cdk-lib/aws-dynamodb");
+const ddb = require("npm i @aws-cdk/aws-dynamodb");
 6)for iam policies
 const iam = require("npm i @aws-cdk/aws-iam");
 7)secret key manager
@@ -24,3 +24,9 @@ productTable.grantFullAccess(lambda_function);
       resources: [secret3.secretArn],
       actions: ['secretsmanager:GetSecretValue']
     }));
+12)pipeLine library
+@aws-cdk/aws-codepipeline
+//Three steps of basic pipeline is 
+i)fetch code from githug
+ii)build the code we have fetched
+iii)deploy the code 
