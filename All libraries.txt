@@ -3,7 +3,7 @@ cdk init app --language typescript
 2)for cdk inializing 
 const aws_cdk_lib_1 = require("aws-cdk-lib");
 3)for lambda inializing 
-const lambda = require(" @aws-cdk/aws-lambda");
+const lambda = require("npm i @aws-cdk/aws-lambda");
 4)for appsync alpha inializing 
 const appsync = require("@aws-cdk/aws-appsync-alpha");
 5)for dynamoDb inializing 
@@ -30,3 +30,9 @@ productTable.grantFullAccess(lambda_function);
 i)fetch code from githug
 ii)build the code we have fetched
 iii)deploy the code 
+13)Api gateway
+npm i @aws-cdk/aws-apigateway
+14)sns
+npm i @aws-cdk/aws-sns
+15)lambda types
+npm i @types/aws-lambda
