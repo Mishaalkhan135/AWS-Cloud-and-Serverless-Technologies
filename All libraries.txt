@@ -36,3 +36,5 @@ npm i @aws-cdk/aws-apigateway
 npm i @aws-cdk/aws-sns
 15)lambda types
 npm i @types/aws-lambda
+16)npm i @aws-cdk/aws-sns-subscriptions
+17)npm i @aws-cdk/aws-sqs
