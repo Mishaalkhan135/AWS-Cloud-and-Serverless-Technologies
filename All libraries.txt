@@ -38,3 +38,5 @@ npm i @aws-cdk/aws-sns
 npm i @types/aws-lambda
 16)npm i @aws-cdk/aws-sns-subscriptions
 17)npm i @aws-cdk/aws-sqs
+18)import * as stepFunctionTasks from "npm i @aws-cdk/aws-stepfunctions-tasks"
+19)import * as stepFunctions from "npm i @aws-cdk/aws-stepfunctions";
