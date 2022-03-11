@@ -28,7 +28,7 @@ productTable.grantFullAccess(lambda_function);
 @aws-cdk/aws-codepipeline
 //Three steps of basic pipeline is 
 i)fetch code from githug
-ii)build the code we have fetched
+ii)build the code we have fetched 
 iii)deploy the code 
 13)Api gateway
 npm i @aws-cdk/aws-apigateway
@@ -40,3 +40,5 @@ npm i @types/aws-lambda
 17)npm i @aws-cdk/aws-sqs
 18)import * as stepFunctionTasks from "npm i @aws-cdk/aws-stepfunctions-tasks"
 19)import * as stepFunctions from "npm i @aws-cdk/aws-stepfunctions";
+20)npm i @aws-cdk/aws-cloudwatch-actions
+21)npm i @aws-cdk/aws-cloudwatch
